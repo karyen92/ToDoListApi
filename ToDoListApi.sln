@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListApi", "ToDoListApi\ToDoListApi.csproj", "{BCFB256A-601D-4A33-9C02-3DAE7D8E6846}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoListApiTest", "ToDoListApiTest\ToDoListApiTest.csproj", "{52B69E11-F7AE-4228-BFA5-F7C43F3338FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCFB256A-601D-4A33-9C02-3DAE7D8E6846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCFB256A-601D-4A33-9C02-3DAE7D8E6846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCFB256A-601D-4A33-9C02-3DAE7D8E6846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCFB256A-601D-4A33-9C02-3DAE7D8E6846}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B69E11-F7AE-4228-BFA5-F7C43F3338FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B69E11-F7AE-4228-BFA5-F7C43F3338FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B69E11-F7AE-4228-BFA5-F7C43F3338FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B69E11-F7AE-4228-BFA5-F7C43F3338FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
