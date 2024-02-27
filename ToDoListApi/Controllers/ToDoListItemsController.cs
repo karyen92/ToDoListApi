@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using ToDoListApi.Handlers.ToDoListItems;
 
 namespace ToDoListApi.Controllers;
@@ -18,6 +19,7 @@ public class ToDoListItemsController : ControllerBase
     }
     
     [HttpPost]
+    [SwaggerOperation("Create a To Do List Item")]
     public async Task<IActionResult> Post([FromBody]CreateToDoListItemRequest request)
     {
         var result = await _mediator.Send(request);
@@ -25,6 +27,7 @@ public class ToDoListItemsController : ControllerBase
     }
     
     [HttpPut]
+    [SwaggerOperation("Edit a To Do List Item")]
     public async Task<IActionResult> Put([FromBody]UpdateToDoListItemRequest request)
     {
         var result = await _mediator.Send(request);
@@ -32,6 +35,7 @@ public class ToDoListItemsController : ControllerBase
     }
     
     [HttpDelete("{Id}")]
+    [SwaggerOperation("Delete To Do List Item")]
     public async Task<IActionResult> Delete([FromRoute]DeleteToDoListItemRequest request)
     {
         var result = await _mediator.Send(request);
@@ -39,6 +43,7 @@ public class ToDoListItemsController : ControllerBase
     }
     
     [HttpPost("query")]
+    [SwaggerOperation("Query To Do List Items")]
     public async Task<IActionResult> Query([FromBody]QueryToDoListItemsRequest request)
     {
         var result = await _mediator.Send(request);

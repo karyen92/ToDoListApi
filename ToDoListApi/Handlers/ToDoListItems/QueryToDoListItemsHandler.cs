@@ -13,6 +13,7 @@ public class QueryToDoListItemsRequest : IRequest<QueryToDoListItemsResponse>
     public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
     public DateTime? DueDate { get; set; }
+    public ToDoListItemStatus? ItemStatus { get; set; }
     public int SkipCount { get; set; }
     public int TakeCount { get; set; }
 }
@@ -31,7 +32,7 @@ public class QueryToDoListItemDto
     public string? Description { get; set; }
     public string? Location { get; set; }
     public DateTime? DueDate { get; set; }
-    public DateTime CreateDate { get; set; }
+    public DateTime LastUpdateDate { get; set; }
     public List<Guid> TagIds { get; set; }
 }
 
@@ -62,6 +63,11 @@ public class QueryToDoListItemsHandler : IRequestHandler<QueryToDoListItemsReque
         if (!string.IsNullOrEmpty(request.Location))
         {
             query = query.Where(x => x.Location != null && x.Location.Contains(request.Location));
+        }
+        
+        if (request.ItemStatus != null)
+        {
+            query = query.Where(x => x.ItemStatus == request.ItemStatus);
         }
 
         if (request.StartDate != null)
@@ -100,7 +106,7 @@ public class QueryToDoListItemsHandler : IRequestHandler<QueryToDoListItemsReque
                 ItemStatus = x.ItemStatus,
                 Description = x.Description,
                 Location = x.Location,
-                CreateDate = x.LastUpdateDate,
+                LastUpdateDate = x.LastUpdateDate,
                 DueDate = x.DueDate,
                 TagIds = x.TagToDoListItems.Select(y => y.TagId).ToList()
             })

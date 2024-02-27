@@ -14,7 +14,7 @@ public class CreateTagResponse
 {
     public Guid Id { get; set; }
     public string Label { get; set; }
-    public DateTime CreateDate { get; set; }
+    public DateTime LastUpdateDate { get; set; }
 }
 
 public class CreateTagValidator : AbstractValidator<CreateTagRequest>
@@ -67,7 +67,7 @@ public class CreateTagHandler : IRequestHandler<CreateTagRequest, CreateTagRespo
         {
             Id = tag.Id,
             Label = tag.Label,
-            CreateDate = tag.LastUpdateDate
+            LastUpdateDate = tag.LastUpdateDate
         };
     }
 }

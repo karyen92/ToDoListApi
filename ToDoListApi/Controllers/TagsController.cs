@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using ToDoListApi.Handlers.Tags;
 
 namespace ToDoListApi.Controllers;
@@ -18,6 +19,7 @@ public class TagsController : ControllerBase
     }
     
     [HttpPost]
+    [SwaggerOperation("Create Tag")]
     public async Task<IActionResult> Post([FromBody]CreateTagRequest request)
     {
         var result = await _mediator.Send(request);
@@ -25,6 +27,7 @@ public class TagsController : ControllerBase
     }
     
     [HttpPut]
+    [SwaggerOperation("Edit Tag")]
     public async Task<IActionResult> Put([FromBody]UpdateTagRequest request)
     {
         var result = await _mediator.Send(request);
@@ -32,6 +35,7 @@ public class TagsController : ControllerBase
     }
     
     [HttpDelete("{id}")]
+    [SwaggerOperation("Delete Tag")]
     public async Task<IActionResult> Delete([FromRoute]DeleteTagRequest request)
     {
         var result = await _mediator.Send(request);
@@ -39,6 +43,7 @@ public class TagsController : ControllerBase
     }
     
     [HttpGet]
+    [SwaggerOperation("Get All Tags Created By Current User")]
     public async Task<IActionResult> Get()
     {
         var result = await _mediator.Send(new GetAllTagsRequest());
