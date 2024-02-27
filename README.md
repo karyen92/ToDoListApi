@@ -7,7 +7,7 @@
 and hosted in AWS ECS Cluster
 
 - Design Pattern used
- - Mediator (provided by IMediatR)
+  - Mediator (provided by IMediatR)
 
 - Authentication
   - The API is protected by JWT Token
@@ -22,8 +22,8 @@ and hosted in AWS ECS Cluster
 ## Steps to Run at Local
 
 - Prerequisite
- 1. Download the folder to local
- 2. Your machine should have installed .NET SDK, .NET Tool `dotnet-ef` and MSSQL Server
+  1. Download the folder to local
+  2. Your machine should have installed .NET SDK, .NET Tool `dotnet-ef` and MSSQL Server
 
 - Setup the Database
   1. From the downloaded root folder, navigate to `ToDoListApi`
