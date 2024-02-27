@@ -3,10 +3,12 @@ WORKDIR /App
 
 # Copy everything
 COPY ./ToDoListApi ./
+RUN dotnet test dotnet test ./ToDoListApiTest/ToDoListApiTest.csproj
 RUN dotnet publish ./ToDoListApi.csproj -c Release -o out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
 WORKDIR /App
 COPY --from=build-env /App/out .
+ENV ASPNETCORE_ENVIRONMENT=Production
 ENTRYPOINT ["dotnet", "ToDoListApi.dll"]
