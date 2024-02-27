@@ -3,7 +3,7 @@ WORKDIR /App
 
 # Copy everything
 COPY ./ToDoListApi ./
-RUN dotnet test dotnet test ./ToDoListApiTest/ToDoListApiTest.csproj
+RUN dotnet test ./ToDoListApiTest/ToDoListApiTest.csproj
 RUN dotnet publish ./ToDoListApi.csproj -c Release -o out
 
 # Build runtime image
