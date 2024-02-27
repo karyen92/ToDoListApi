@@ -17,7 +17,7 @@ and hosted in AWS ECS Cluster
 
 - Database
     - The ORM used is EntityFramework
-    - The Database are created with the 
+    - The database is scripted with the help of `dotnet-ef` tool
 
 ## Steps to Run at Local
 
