@@ -34,7 +34,7 @@ public class TagsController : ControllerBase
         return Ok(result);
     }
     
-    [HttpDelete("{id}")]
+    [HttpDelete("{Id}")]
     [SwaggerOperation("Delete Tag")]
     public async Task<IActionResult> Delete([FromRoute]DeleteTagRequest request)
     {
