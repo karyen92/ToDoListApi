@@ -35,7 +35,7 @@ and hosted in AWS ECS Cluster
   1. From the downloaded root folder, navigate to `ToDoListApi`
   2. Open a terminal
   3. Run command `dotnet run`
-  4. You should see the swagger at `http://localhost:5188`
+  4. You should see the swagger at `http://localhost:5188/swagger`
 
 ## Steps to Run Unit Test
 
