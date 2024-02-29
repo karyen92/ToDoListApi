@@ -14,6 +14,8 @@ public class QueryToDoListItemsRequest : IRequest<QueryToDoListItemsResponse>
     public DateTime? EndDate { get; set; }
     public DateTime? DueDate { get; set; }
     public ToDoListItemStatus? ItemStatus { get; set; }
+    public string? OrderBy { get; set; }
+    public bool? IsDescending { get; set; }
     public int SkipCount { get; set; }
     public int TakeCount { get; set; }
 }
@@ -92,6 +94,41 @@ public class QueryToDoListItemsHandler : IRequestHandler<QueryToDoListItemsReque
 
                 query = query.Where(x => x.TagToDoListItems.Any(x => x.TagId == tagId));
             }
+        }
+
+        if (request.OrderBy != null)
+        {
+            if (request.IsDescending is true)
+            {
+                switch (request.OrderBy)
+                {
+                    case "dueDate":
+                        query = query.OrderByDescending(x => x.DueDate);
+                        break;
+                    case "title":
+                        query = query.OrderByDescending(x => x.Title);
+                        break;
+                    case "lastUpdate":
+                        query = query.OrderByDescending(x => x.LastUpdateDate);
+                        break;
+                }
+            }
+            else
+            {
+                switch (request.OrderBy)
+                {
+                    case "dueDate":
+                        query = query.OrderBy(x => x.DueDate);
+                        break;
+                    case "title":
+                        query = query.OrderByDescending(x => x.Title);
+                        break;
+                    case "lastUpdate":
+                        query = query.OrderBy(x => x.LastUpdateDate);
+                        break;
+                }
+            }
+            
         }
 
         var total = await query.CountAsync(cancellationToken);
