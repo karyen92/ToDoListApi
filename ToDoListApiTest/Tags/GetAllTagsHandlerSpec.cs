@@ -1,3 +1,4 @@
+using FakeItEasy;
 using FluentAssertions;
 using ToDoListApi.Domains;
 using ToDoListApi.Handlers.Tags;
@@ -39,6 +40,11 @@ public class GetAllTagHandlerSpec : SpecBase
         };
 
         _domainContext.Tags.Add(tag);
+
+        _domainContext.SaveChanges();
+        
+        _identityProvider = A.Fake<IIdentityProvider>();
+        A.CallTo(() => _identityProvider.UserId).Returns(user.Id);
 
         _handler = new GetAllTagsHandler(_domainContext, _identityProvider);
     }
