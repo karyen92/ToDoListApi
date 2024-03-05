@@ -41,7 +41,7 @@ public class GetAllTagHandlerSpec : SpecBase
 
         _domainContext.Tags.Add(tag);
 
-        _domainContext.SaveChanges();
+        _domainContext.SaveChanges(); 
         
         _identityProvider = A.Fake<IIdentityProvider>();
         A.CallTo(() => _identityProvider.UserId).Returns(user.Id);
