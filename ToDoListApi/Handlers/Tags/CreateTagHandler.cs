@@ -7,13 +7,26 @@ namespace ToDoListApi.Handlers.Tags;
 
 public class CreateTagRequest : IRequest<CreateTagResponse>
 {
+    /// <summary>
+    /// The label of the tag
+    /// Label must be distinct. No duplicate label is allowed per user
+    /// </summary>
     public string Label { get; set; }
 }
 
 public class CreateTagResponse
 {
+    /// <summary>
+    /// The id of the tag
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// The label of the tag
+    /// </summary>
     public string Label { get; set; }
+    /// <summary>
+    /// The last updated date
+    /// </summary>
     public DateTime LastUpdateDate { get; set; }
 }
 

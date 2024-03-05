@@ -10,8 +10,17 @@ public class GetCurrentUserRequest : IRequest<GetCurrentUserResponse>
 
 public class GetCurrentUserResponse
 {
+    /// <summary>
+    /// The current user id
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// The current user username
+    /// </summary>
     public string Username { get; set; }
+    /// <summary>
+    /// The date current user was created in this application
+    /// </summary>
     public DateTime CreateDate { get; set; }
 }
 

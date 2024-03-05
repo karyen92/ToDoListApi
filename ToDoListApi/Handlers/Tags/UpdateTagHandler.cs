@@ -7,13 +7,25 @@ namespace ToDoListApi.Handlers.Tags;
 
 public class UpdateTagRequest : IRequest<UpdateTagResponse>
 {
+    /// <summary>
+    /// The tag id
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// The tag new label
+    /// </summary>
     public string Label { get; set; }
 }
 
 public class UpdateTagResponse
 {
+    /// <summary>
+    /// The updated tag id
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// The updated tag label
+    /// </summary>
     public string Label { get; set; }
 }
 

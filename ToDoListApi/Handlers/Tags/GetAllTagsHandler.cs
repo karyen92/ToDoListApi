@@ -12,13 +12,25 @@ public class GetAllTagsRequest : IRequest<GetAllTagsResponse>
 
 public class GetAllTagsResponse
 {
+    /// <summary>
+    /// The full list of tags belong to current sign in user
+    /// </summary>
     public List<GetAllTagsItem> Data { get; set; }
 }
 
 public class GetAllTagsItem
 {
+    /// <summary>
+    /// The tag id
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// The tag label
+    /// </summary>
     public string Label { get; set; }
+    /// <summary>
+    /// The last updated date of the tag
+    /// </summary>
     public DateTime LastUpdateDate { get; set; }
 }
 

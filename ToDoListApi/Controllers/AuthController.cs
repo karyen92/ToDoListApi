@@ -18,11 +18,11 @@ public class AuthController : ControllerBase
     {
         _mediator = mediator;
     }
-
+    
     [AllowAnonymous]
     [HttpPost("login")]
     [SwaggerOperation("Login to System Using Username and Password")]
-    [ProducesResponseType(200)]
+    [ProducesResponseType(typeof(LoginResponse), 200)]
     [ProducesResponseType(400)]
     public async Task<IActionResult> Login([FromBody]LoginRequest request)
     {
@@ -33,6 +33,8 @@ public class AuthController : ControllerBase
     [AllowAnonymous]
     [HttpPost("register")]
     [SwaggerOperation("Register to The System")]
+    [ProducesResponseType(typeof(RegisterUserResponse), 200)]
+    [ProducesResponseType(400)]
     public async Task<IActionResult> Register([FromBody]RegisterUserRequest request)
     {
         var result = await _mediator.Send(request);
@@ -42,6 +44,7 @@ public class AuthController : ControllerBase
     [Authorize]
     [HttpGet("currentUser")]
     [SwaggerOperation("Get Current Sign In User information")]
+    [ProducesResponseType(typeof(GetCurrentUserResponse), 200)]
     public async Task<IActionResult> CurrentUser()
     {
         var result = await _mediator.Send(new GetCurrentUserRequest());

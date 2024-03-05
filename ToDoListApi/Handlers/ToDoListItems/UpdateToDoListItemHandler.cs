@@ -8,24 +8,69 @@ namespace ToDoListApi.Handlers.ToDoListItems;
 
 public class UpdateToDoListItemRequest : IRequest<UpdateToDoListItemResponse>
 {
+    /// <summary>
+    /// The to be updated item id
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// The ItemStatus to be updated towards selected item
+    /// </summary>
     public ToDoListItemStatus ItemStatus { get; set; }
+    /// <summary>
+    /// The title to be updated towards selected item
+    /// </summary>
     public string Title { get; set; }
+    /// <summary>
+    /// The description to be updated towards selected item
+    /// </summary>
     public string? Description { get; set; }
+    /// <summary>
+    /// The location to be updated towards selected item
+    /// </summary>
     public string? Location { get; set; }
+    /// <summary>
+    /// The due date to be updated towards selected item
+    /// </summary>
     public DateTime? DueDate { get; set; }
+    /// <summary>
+    /// The tags (id) associated for the selected item
+    /// </summary>
     public List<Guid>? Tags { get; set; }
 }
 
 public class UpdateToDoListItemResponse
 {
+    /// <summary>
+    /// The updated item id
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// The updated item title
+    /// </summary>
     public string Title { get; set; }
+    /// <summary>
+    /// The updated item status
+    /// </summary>
     public ToDoListItemStatus ItemStatus { get; set; }
+    /// <summary>
+    /// The updated item description
+    /// </summary>
     public string? Description { get; set; }
+    /// <summary>
+    /// The updated item location
+    /// </summary>
     public string? Location { get; set; }
+    /// <summary>
+    /// The updated due date
+    /// </summary>
     public DateTime? DueDate { get; set; }
+    /// <summary>
+    /// The updated tags associated with the item
+    /// </summary>
     public List<Guid> Tags { get; set; }
+    /// <summary>
+    /// The last updated date for the item
+    /// </summary>
     public DateTime LastUpdateDate { get; set; }
 }
 

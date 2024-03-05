@@ -7,22 +7,67 @@ namespace ToDoListApi.Handlers.ToDoListItems;
 
 public class CreateToDoListItemRequest : IRequest<CreateToDoListItemResponse>
 {
+    /// <summary>
+    /// The title of the item (required).
+    /// Maximum accepted character length is 250
+    /// </summary>
     public string Title { get; set; }
+    /// <summary>
+    /// The description of the item (optional).
+    /// Maximum accepted character length is 500
+    /// </summary>
     public string? Description { get; set; }
+    /// <summary>
+    /// The location of the item (optional).
+    /// Maximum accepted character length is 250
+    /// </summary>
     public string? Location { get; set; }
+    /// <summary>
+    /// The due date of the item (optional).
+    /// </summary>
     public DateTime? DueDate { get; set; }
+    /// <summary>
+    /// List of tags (tag id) that is associated with the to be created items
+    /// </summary>
     public List<Guid>? Tags { get; set; }
 }
 
 public class CreateToDoListItemResponse
 {
+    
+    /// <summary>
+    /// The id of the created item
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// The status of the item
+    /// By default newly created item is NotStarted
+    /// </summary>
     public ToDoListItemStatus ItemStatus { get; set; }
+    /// <summary>
+    /// The title of the item
+    /// </summary>
     public string Title { get; set; }
+    /// <summary>
+    /// The description of the item
+    /// </summary>
     public string? Description { get; set; }
+    /// <summary>
+    /// The location of the item
+    /// </summary>
     public string? Location { get; set; }
+    /// <summary>
+    /// The due date of the item
+    /// </summary>
     public DateTime? DueDate { get; set; }
+    /// <summary>
+    /// The tags associated with the item
+    /// </summary>
     public List<Guid> Tags { get; set; }
+    /// <summary>
+    /// The last update date of the item
+    /// For newly created item, the last update date would be equivalent to the create date 
+    /// </summary>
     public DateTime LastUpdateDate { get; set; }
 }
 
@@ -39,7 +84,7 @@ public class CreateToDoListItemValidator : AbstractValidator<CreateToDoListItemR
         
         RuleFor(x => x.Description)
             .MaximumLength(500)
-            .WithMessage("Maximum Length Allowed For Description is 250");
+            .WithMessage("Maximum Length Allowed For Description is 500");
         
         RuleFor(x => x.Location)
             .MaximumLength(250)
@@ -85,7 +130,7 @@ public class CreateToDoListItemHandler : IRequestHandler<CreateToDoListItemReque
         var item = new ToDoListItem
         {
             Title = request.Title,
-            
+            ItemStatus = ToDoListItemStatus.NotStarted,
             Description = request.Description,
             Location = request.Location,
             DueDate = request.DueDate,

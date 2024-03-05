@@ -69,6 +69,7 @@ public class CreateToDoListItemHandlerSpec : SpecBase
     public void Ensure_Create_Success()
     {
         _response.Id.Should().NotBe(Guid.Empty);
+        _response.ItemStatus.Should().Be(ToDoListItemStatus.NotStarted);
         _response.Title.Should().Be(_request.Title);
         _response.Description.Should().Be(_request.Description);
         _response.Location.Should().Be(_request.Location);

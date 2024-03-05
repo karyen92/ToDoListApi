@@ -20,6 +20,8 @@ public class ToDoListItemsController : ControllerBase
     
     [HttpPost]
     [SwaggerOperation("Create a To Do List Item")]
+    [ProducesResponseType(typeof(CreateToDoListItemResponse), 200)]
+    [ProducesResponseType(400)]
     public async Task<IActionResult> Post([FromBody]CreateToDoListItemRequest request)
     {
         var result = await _mediator.Send(request);
@@ -28,6 +30,8 @@ public class ToDoListItemsController : ControllerBase
     
     [HttpPut]
     [SwaggerOperation("Edit a To Do List Item")]
+    [ProducesResponseType(typeof(UpdateToDoListItemResponse), 200)]
+    [ProducesResponseType(400)]
     public async Task<IActionResult> Put([FromBody]UpdateToDoListItemRequest request)
     {
         var result = await _mediator.Send(request);
@@ -36,6 +40,8 @@ public class ToDoListItemsController : ControllerBase
     
     [HttpDelete("{Id}")]
     [SwaggerOperation("Delete To Do List Item")]
+    [ProducesResponseType(typeof(DeleteToDoListItemResponse), 200)]
+    [ProducesResponseType(400)]
     public async Task<IActionResult> Delete([FromRoute]DeleteToDoListItemRequest request)
     {
         var result = await _mediator.Send(request);
@@ -44,6 +50,8 @@ public class ToDoListItemsController : ControllerBase
     
     [HttpPost("query")]
     [SwaggerOperation("Query To Do List Items")]
+    [ProducesResponseType(typeof(QueryToDoListItemsResponse), 200)]
+    [ProducesResponseType(400)]
     public async Task<IActionResult> Query([FromBody]QueryToDoListItemsRequest request)
     {
         var result = await _mediator.Send(request);

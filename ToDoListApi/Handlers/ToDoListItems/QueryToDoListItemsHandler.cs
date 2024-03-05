@@ -7,34 +7,102 @@ namespace ToDoListApi.Handlers.ToDoListItems;
 
 public class QueryToDoListItemsRequest : IRequest<QueryToDoListItemsResponse>
 {
+    /// <summary>
+    /// Query items based on fields Title and Description
+    /// </summary>
     public string? SearchText { get; set; }
+    /// <summary>
+    /// Query items by Location
+    /// </summary>
     public string? Location { get; set; }
+    /// <summary>
+    /// Query items by a list of tags associated
+    /// </summary>
     public List<Guid>? Tags { get; set; }
+    /// <summary>
+    /// Query the item by LastUpdateDate
+    /// Will return item updated after selected date
+    /// </summary>
     public DateTime? StartDate { get; set; }
+    /// <summary>
+    /// Query the item by LastUpdateDate
+    /// Will return item updated before selected date
+    /// </summary>
     public DateTime? EndDate { get; set; }
+    /// <summary>
+    /// Query the item by DueDate
+    /// </summary>
     public DateTime? DueDate { get; set; }
+    /// <summary>
+    /// Query the item by ItemStatus
+    /// Accepted Values: NotStarted, InProgress, Completed, Archived
+    /// </summary>
     public ToDoListItemStatus? ItemStatus { get; set; }
+    /// <summary>
+    /// Sort the item by selected fields
+    /// Accepted values: dueDate, title and lastUpdate
+    /// </summary>
     public string? OrderBy { get; set; }
+    /// <summary>
+    /// Sort the item in descending order by values passed in OrderBy
+    /// If left null or set to true, the items are sorted in ascending mode
+    /// </summary>
     public bool? IsDescending { get; set; }
+    /// <summary>
+    /// Use for pagination Pagination: Skip the given number of items
+    /// </summary>
     public int SkipCount { get; set; }
+    /// <summary>
+    /// Use for pagination Pagination: Return the given number of items
+    /// </summary>
     public int TakeCount { get; set; }
 }
 
 public class QueryToDoListItemsResponse
 {
+    /// <summary>
+    /// Total Number of items filtered
+    /// </summary>
     public int Total { get; set; }
+    /// <summary>
+    /// List of returned items
+    /// </summary>
     public List<QueryToDoListItemDto> Data { get; set; }
 }
 
 public class QueryToDoListItemDto
 {
+    /// <summary>
+    /// The item id
+    /// </summary>
     public Guid Id { get; set; }
+    /// <summary>
+    /// The item title
+    /// </summary>
     public string Title { get; set; }
+    /// <summary>
+    /// The item status
+    /// </summary>
     public ToDoListItemStatus ItemStatus { get; set; }
+    /// <summary>
+    /// The item description
+    /// </summary>
     public string? Description { get; set; }
+    /// <summary>
+    /// The item location
+    /// </summary>
     public string? Location { get; set; }
+    /// <summary>
+    /// The item due date
+    /// </summary>
     public DateTime? DueDate { get; set; }
+    /// <summary>
+    /// The last updated date of item
+    /// </summary>
     public DateTime LastUpdateDate { get; set; }
+    /// <summary>
+    /// The tags (id) associated with this item
+    /// </summary>
     public List<Guid> TagIds { get; set; }
 }
 

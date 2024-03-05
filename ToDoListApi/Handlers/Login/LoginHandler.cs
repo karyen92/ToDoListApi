@@ -9,12 +9,22 @@ namespace ToDoListApi.Handlers.Login;
 
 public class LoginRequest : IRequest<LoginResponse>
 {
+    /// <summary>
+    /// The username
+    /// </summary>
     public string Username { get; set; }
+    /// <summary>
+    /// The password
+    /// </summary>
     public string Password { get; set; }
 }
 
 public class LoginResponse
 {
+    /// <summary>
+    /// The generated jwt token
+    /// Pass the token at the Headers when calling API
+    /// </summary>
     public string Token { get; set; }
 }
 

@@ -8,11 +8,17 @@ namespace ToDoListApi.Handlers.Tags;
 
 public class DeleteTagRequest : IRequest<DeleteTagResponse>
 {
+    /// <summary>
+    /// The tag id
+    /// </summary>
     public Guid Id { get; set; }
 }
 
 public class DeleteTagResponse
 {
+    /// <summary>
+    /// Indicate the deletion success of the selected tag
+    /// </summary>
     public bool Success { get; set; }
 }
 

@@ -8,11 +8,17 @@ namespace ToDoListApi.Handlers.ToDoListItems;
 
 public class DeleteToDoListItemRequest : IRequest<DeleteToDoListItemResponse>
 {
+    /// <summary>
+    /// The id of the to be deleted item
+    /// </summary>
     public Guid Id { get; set; }
 }
 
 public class DeleteToDoListItemResponse
 {
+    /// <summary>
+    /// Indicate the deletion success of the selected item
+    /// </summary>
     public bool Success { get; set; }
 }
 
